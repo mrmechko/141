@@ -1,5 +1,5 @@
 #+seq_todo: TODO DRAFT DONE
-#+EXPORT_FILE_NAME: docs/forloops.html
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
 * Posts :@java:
 ** DONE For Loops
