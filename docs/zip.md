@@ -1,0 +1,23 @@
+Throughout this term, you will be submitting your labs as `zip` files. In a nutshell, a `zip` file is a single file that contains compressed versions of other files and directories. For the purposes of our lab assignments, there are two important aspects to this. First, you only have to attach a single file to your submission. Many of our assignments will contain multiple files with different parts of our program. Creating a `zip` file allows us to bundle them all together so that the grader doesn&rsquo;t have to download multiple files and also so that you, as the submitter, don&rsquo;t accidentally forget a vital file. The `zip` file also preserves the directory structure. The `java` compiler looks for files in specific places, relative to your project&rsquo;s directory. When there are multiple files, the compiler needs them to all be in the right places relative to each other. Uploading the entire directory structure as a single file helps us make sure that the file structure is preserved when the grader opens things up on the other side!
+
+
+# What does it mean to `zip` a file
+
+The primary purpose of a `zip` file or archive is to store a set of files in a more *space efficient* way. You might think that programmers would *always* try to do that but in reality we don&rsquo;t always want to. When we think of *efficiency* in Computer Science, there are two quantities we can try to minimize: **time** and **space**. Very often, when you want to make something more efficient according to one dimension, you end up having to make sacrifices on the other. As an analogy, think about cooking a dinner. If you would like to get your cooking done as fast as possible, you might not have time to clean up after yourself. In this case, you might end up using all the counters in the kitchen and the dining room table to chop up ingredients and store the pots and pans you might need. On the other hand, if you want to be maximally *space efficient*, you might wash every dish after you use it and try to reuse as many things as possible so you don&rsquo;t leave them in the drying rack. In this case, you will end up spending more time cooking, but you would be able to cook the same meal in a much smaller kitchen<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
+
+
+# How to `zip` files
+
+
+## Windows
+
+
+## Mac
+
+
+## Check that it works!
+
+
+# Footnotes
+
+<sup><a id="fn.1" href="#fnr.1">1</a></sup> In this analogy, we can assume that the final clean up happens much the same way as it might in a computer - that is, we turn off the kitchen lights and all the mess is garbage collected. Naturally, cooking up a storm and leaving behind a big mess would not be quite so *time efficient* if we had to factor in all the cleaning time afterwards as well.
