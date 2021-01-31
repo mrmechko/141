@@ -1,5 +1,5 @@
 #+seq_todo: TODO DRAFT DONE
-#+EXPORT_FILE_NAME: doc/forloops.html
+#+EXPORT_FILE_NAME: docs/forloops.html
 
 * Posts :@java:
 ** DONE For Loops
@@ -72,7 +72,7 @@ So what if I wanted to do that 100 times now? Do I just repeat that for loop (/c
 
 #+CAPTION: A for loop, broken down. Credits: Prof Kazakova.
 #+NAME: fig:forloop1
-[[file:static/img/forloop1.png]]
+[[file:./static/img/forloop1.png]]
 
 #+begin_verse
 Steps:
