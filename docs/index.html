@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2021-01-31 Sun 22:14 -->
+  <!-- 2021-01-31 Sun 22:52 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=us-ascii" />
   <meta name="viewport" content=
@@ -264,6 +264,10 @@
 
                   <li><a href="#orge3ef995">Naming
                   Conventions</a></li>
+
+                  <li><a href="#orgf761385"><span class=
+                  "todo TODO">TODO</span> Defining
+                  Variables</a></li>
                 </ul>
               </li>
 
@@ -275,7 +279,8 @@
 
                   <li><a href="#orgca0c022">Casting</a></li>
 
-                  <li><a href="#org46cc86f">Primitive Types vs
+                  <li><a href="#org46cc86f"><span class=
+                  "todo TODO">TODO</span> Primitive Types vs
                   Reference Types</a></li>
                 </ul>
               </li>
@@ -397,6 +402,92 @@
             name="fnr.1">1</a></sup>.</p>
           </div>
         </div>
+
+        <div id="outline-container-orgf761385" class="outline-4">
+          <h4 id="orgf761385"><span class="todo TODO">TODO</span>
+          Defining Variables</h4>
+
+          <div class="outline-text-4" id="text-orgf761385">
+            <p>In order to define a variable, we need to give it a
+            <a href="#org5cfe2d4">type</a> and an identifier.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">bob</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">define a variable named bob that will hold an integer.</span>
+bob = <span style=
+"color: #da8548; font-weight: bold;">3</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">set the value of bob to 3.</span>
+</pre>
+            </div>
+
+            <p>We can also assign our variable an initial value in
+            the same line.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">bob</span> = <span style=
+"color: #da8548; font-weight: bold;">3</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">define an integer named bob and give it the value 3.</span>
+</pre>
+            </div>
+
+            <p>If we wanted to modify the value of
+            <code>bob</code>, we can do it like this:</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+bob = bob + <span style=
+"color: #da8548; font-weight: bold;">3</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">add 3 to the existing value of bob</span>
+</pre>
+            </div>
+
+            <p>If we want to replace the value of <code>bob</code>,
+            we can do it like this:</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+bob = <span style=
+"color: #da8548; font-weight: bold;">23</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">forget the old value of bob and replace it with 23.</span>
+</pre>
+            </div>
+
+            <p>We can even use variables to modify or replace other
+            variables!</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">alice</span> = <span style=
+"color: #da8548; font-weight: bold;">5</span>;
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">bob</span> = <span style=
+"color: #da8548; font-weight: bold;">3</span>;
+
+alice = alice - bob; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">the subtract the value of bob from the value of alice.</span>
+                     <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">alice now contains 2.</span>
+
+alice = bob; <span style="color: #5B6268;">// </span><span style=
+"color: #5B6268;">replace the value of alice with the value of bob. alice now</span>
+             <span style="color: #5B6268;">// </span><span style=
+"color: #5B6268;">contains 3.</span>
+</pre>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div id="outline-container-org5cfe2d4" class="outline-3">
@@ -500,11 +591,62 @@
 
         <div id="outline-container-orgca0c022" class="outline-4">
           <h4 id="orgca0c022">Casting</h4>
+
+          <div class="outline-text-4" id="text-orgca0c022">
+            <p>Some types can be <i>cast</i> to each other. For
+            example, an <code>double</code> type can store an
+            <code>int</code>. If we wanted to represent the integer
+            <code>3</code> as a <code>double</code>, we could
+            simply write <code>3.0</code>. However, we can&rsquo;t
+            go back in the opposite direction.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">myVariable</span> = <span style=
+"color: #da8548; font-weight: bold;">19</span>;            <span style="color: #5B6268;">// </span><span style="color: #5B6268;">stores the number 19 in my variable</span>
+<span style="color: #ECBE7B;">double</span> <span style=
+"color: #dcaeea;">myDoubleVariable</span> = <span style=
+"color: #da8548; font-weight: bold;">19.2</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">stores the number 19.2 in myDoubleVariable</span>
+<span style="color: #ECBE7B;">double</span> <span style=
+"color: #dcaeea;">myPromotedVariable</span> = <span style=
+"color: #da8548; font-weight: bold;">19</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">stores the number 19.0 in myPromotedVariable</span>
+</pre>
+            </div>
+
+            <p>When we assign an integer to a double, Java
+            automatically promotes it to a decimal. However, if we
+            tried to assign a double to an integer, Java would
+            complain about a <i>loss of precision</i>. Java
+            doesn&rsquo;t know what your actual intention is when
+            it comes to how you use your variables, but it
+            won&rsquo;t let you accidentally lose information. if
+            you want to assign a double to an integer, you&rsquo;ll
+            have to do it explicitly:</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">myDownCastInt</span> = (<span style=
+"color: #ECBE7B;">int</span>)<span style=
+"color: #da8548; font-weight: bold;">19.3</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">Casts 19.3 to an integer by dropping the .3</span>
+                               <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">portion and assigns it to myDownCastInt</span>
+</pre>
+            </div>
+          </div>
         </div>
 
         <div id="outline-container-org46cc86f" class="outline-4">
-          <h4 id="org46cc86f">Primitive Types vs Reference
-          Types</h4>
+          <h4 id="org46cc86f"><span class="todo TODO">TODO</span>
+          Primitive Types vs Reference Types</h4>
 
           <div class="outline-text-4" id="text-org46cc86f"></div>
         </div>
@@ -813,7 +955,7 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
   <div id="postamble" class="status">
     <p class="author">Author: Rik Bose</p>
 
-    <p class="date">Created: 2021-01-31 Sun 22:14</p>
+    <p class="date">Created: 2021-01-31 Sun 22:52</p>
   </div>
 </body>
 </html>

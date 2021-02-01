@@ -11,8 +11,48 @@ As the name implies, a /variable/ is something that can /vary/. Our code is a pr
 ** Identifiers
 In Java, =identifiers= are legal names. Identifiers must start with a letter (upper or lower case) or an =_= so that the Java compiler doesn't get confused. They also cannot have a space in them, or the Java compiler will try to read them as two different things! Identifiers may contain any number of letters, digits, or =_= after the initial character.
 
-** Naming Conventions
+** [#B] Naming Conventions
 There are conventions surrounding names in Java. While your code will compile and run if you break these conventions, other coders might get confused trying to read your code if you do. Identifiers for classes and interfaces should start with a capital letter. Variables start with lowercase letters. All identifiers should be descriptive, if possible, and you should only use a single character identifier if the variable is 'temporary'. If a variable has multiple words in it (e.g. =myReallyFunVariableName=), then all words after the first should start with a capital letter[fn:conventions].
+
+** TODO Defining Variables
+In order to define a variable, we need to give it a [[*What is a type?][type]] and an identifier.
+
+#+begin_src java
+int bob; // define a variable named bob that will hold an integer.
+bob = 3; // set the value of bob to 3.
+#+end_src
+
+We can also assign our variable an initial value in the same line.
+
+#+begin_src java
+int bob = 3; // define an integer named bob and give it the value 3.
+#+end_src
+
+If we wanted to modify the value of =bob=, we can do it like this:
+
+#+begin_src java
+bob = bob + 3; // add 3 to the existing value of bob
+#+end_src
+
+If we want to replace the value of =bob=, we can do it like this:
+
+#+begin_src java
+bob = 23; // forget the old value of bob and replace it with 23.
+#+end_src
+
+We can even use variables to modify or replace other variables!
+
+#+begin_src java
+int alice = 5;
+int bob = 3;
+
+alice = alice - bob; // the subtract the value of bob from the value of alice.
+                     // alice now contains 2.
+
+alice = bob; // replace the value of alice with the value of bob. alice now
+             // contains 3.
+#+end_src
+
 
 * What is a type?
 Java is a *strongly typed language*. This means you need to explicitly tell the Java compiler what kind of data will be stored in a variable. In much the same way as the letter =O= and the digit =0= can be indistinguishable in written text unless you know specifically that you are dealing with words or numbers, Java can't make sense of a variable unless it knows how to interpret it.
@@ -39,7 +79,22 @@ We will start with three basic types.
   + A =String= type is denoted by double quotes ="= in Java.
 
 ** Casting
-** Primitive Types vs Reference Types
+Some types can be /cast/ to each other. For example, an =double= type can store an =int=. If we wanted to represent the integer =3= as a =double=, we could simply write =3.0=. However, we can't go back in the opposite direction.
+
+#+begin_src java
+int myVariable = 19;            // stores the number 19 in my variable
+double myDoubleVariable = 19.2; // stores the number 19.2 in myDoubleVariable
+double myPromotedVariable = 19; // stores the number 19.0 in myPromotedVariable
+#+end_src
+
+When we assign an integer to a double, Java automatically promotes it to a decimal. However, if we tried to assign a double to an integer, Java would complain about a /loss of precision/. Java doesn't know what your actual intention is when it comes to how you use your variables, but it won't let you accidentally lose information. if you want to assign a double to an integer, you'll have to do it explicitly:
+
+#+begin_src java
+int myDownCastInt = (int)19.3; // Casts 19.3 to an integer by dropping the .3
+                               // portion and assigns it to myDownCastInt
+#+end_src
+
+** TODO Primitive Types vs Reference Types
 
 [fn:conventions] We will learn more about classes and interfaces later. An outline of basic conventions can be found [[https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html][here]].
 [fn:encoding] An encoding is a predefined convention to represent something. For example, the text you are reading on your screen right now are an /encoding/ of the words they represent. In computer science, we /encode/ everything in a binary format of 1s and 0s.
