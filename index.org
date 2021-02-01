@@ -1,5 +1,6 @@
 #+seq_todo: TODO DRAFT DONE
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+SETUPFILE: theme-readtheorg.setup
+
 #+TITLE: Chapter 1
 #+OPTIONS: num:nil
 
@@ -12,7 +13,7 @@ The purpose of this document is not to teach you all the material from scratch. 
 * Introduction
 * Variables and Types
 #+INCLUDE: "sections/01/variables.org"
-* Expressions
+* Expressions (and Types)
 #+INCLUDE: "sections/01/expressions.org"
 * Calling Functions
 #+INCLUDE: "sections/01/calling.org"

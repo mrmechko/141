@@ -1,1 +1,47 @@
-#+TITLE: Expressions
+* TODO Expressions
+An expression in Java is something that can be evaluated. Expressions alone aren't always valid lines of Java code, but being able to break up the evalution of code is very useful.
+
+#+begin_src java
+(12 * 10)   // an expression multiplying 2 and 10
+(2 + num)   // add num to 2
+#+end_src
+
+When evaluating an expression, you should keep track of the type. For example:
+
+#+begin_src java
+int whole = 2;
+double decimal = whole*2.0; // whole * 2.0 is an expression which evaluates to a double
+#+end_src
+
+In the code above, we multiply an =double= by an =int=, which Java automatically transforms into a =double= for us.
+
+* TODO Basic arithmetic
+Our basic arithmetic operations work in Java: =+-*/=. As expected, =a + b= adds =a= and =b= together while =a - b= subtracts =b= from =a=. If we mix =int= and =double= types when it comes to operations, we always get back a =double= because Java doesn't want to throw away precision without your permission.
+
+** Integer Division
+#+begin_src java
+int factor = multiple / divisor;
+#+end_src
+
+In the above code, =factor= is the integer resulting from dividing =multiple= by =divisor=. This is all well and good when =factor * divisor= is equal to =multiple=.
+
+But what happens when it isn't?
+
+#+begin_src java
+int multiple = 13;
+int divisor = 3;
+
+int factor = multiple / divisor; // 3 leaves a remainder of 1 when dividing 13.
+#+end_src
+
+Remember how when we cast a =double= to an =int=, we discard the decimal portion? We are doing a similar thing here. We can't express =13/3= exactly in integers, so we will discard the remainder. Our result, stored in =factor= will be =4=, because =4*3= is =12=, which is as close as we can get to =13= without going over.
+
+If we want to find the remainder, we can use the =modulo= operator, =%=.
+
+#+begin_src java
+int result = (multiple / divisor) + (multiple % divisor)
+#+end_src
+
+In this case, =result= is equal to =13=, because =(multiple % divisor)= is =1=, the remainder after dividing =13= by =3=[fn:contradiction].
+
+[fn:contradiction] This seems to contradict the earlier assertion, that Java won't throw away your precision without your permission. However, there's more at work here. Computer science extends from a branch of mathematics called Discrete Math, where everything is an integer. Much of the math that determines what can and cannot be computed relies on integer-only math.

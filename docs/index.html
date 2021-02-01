@@ -4,13 +4,13 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2021-01-31 Sun 22:52 -->
+  <!-- 2021-02-01 Mon 01:46 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=us-ascii" />
   <meta name="viewport" content=
   "width=device-width, initial-scale=1" />
 
-  <title>Chapter 1 Expressions Calling Running Scanners</title>
+  <title>Chapter 1</title>
   <meta name="generator" content="Org mode" />
   <meta name="author" content="Rik Bose" />
   <style type="text/css">
@@ -242,8 +242,7 @@
 
 <body>
   <div id="content">
-    <h1 class="title">Chapter 1 Expressions Calling Running
-    Scanners</h1>
+    <h1 class="title">Chapter 1</h1>
 
     <div id="table-of-contents">
       <h2>Table of Contents</h2>
@@ -287,7 +286,24 @@
             </ul>
           </li>
 
-          <li><a href="#org55b8515">Expressions</a></li>
+          <li>
+            <a href="#orgae85bf3">Expressions (and Types)</a>
+
+            <ul>
+              <li><a href="#org04ce19b"><span class=
+              "todo TODO">TODO</span> Expressions</a></li>
+
+              <li>
+                <a href="#orgf6a6b77"><span class=
+                "todo TODO">TODO</span> Basic arithmetic</a>
+
+                <ul>
+                  <li><a href="#orgda4e56b">Integer
+                  Division</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
 
           <li><a href="#org227e4d0">Calling Functions</a></li>
 
@@ -308,6 +324,9 @@
 
                   <li><a href="#org6bb802c">Enter the
                   <code>for</code> loop.</a></li>
+
+                  <li><a href="#orgd6b333c">Deconstructing a for
+                  loop (illustrated)</a></li>
 
                   <li><a href="#org61ba28d">Techniques</a></li>
                 </ul>
@@ -641,6 +660,9 @@ alice = bob; <span style="color: #5B6268;">// </span><span style=
 "color: #5B6268;">portion and assigns it to myDownCastInt</span>
 </pre>
             </div>
+
+            <p>Note that when we cast a <code>double</code> to an
+            <code>int</code>, we discard the decimal portion.</p>
           </div>
         </div>
 
@@ -653,28 +675,148 @@ alice = bob; <span style="color: #5B6268;">// </span><span style=
       </div>
     </div>
 
-    <div id="outline-container-org55b8515" class="outline-2">
-      <h2 id="org55b8515">Expressions</h2>
+    <div id="outline-container-orgae85bf3" class="outline-2">
+      <h2 id="orgae85bf3">Expressions (and Types)</h2>
 
-      <div class="outline-text-2" id="text-org55b8515"></div>
+      <div class="outline-text-2" id="text-orgae85bf3"></div>
+
+      <div id="outline-container-org04ce19b" class="outline-3">
+        <h3 id="org04ce19b"><span class="todo TODO">TODO</span>
+        Expressions</h3>
+
+        <div class="outline-text-3" id="text-org04ce19b">
+          <p>An expression in Java is something that can be
+          evaluated. Expressions alone aren&rsquo;t always valid
+          lines of Java code, but being able to break up the
+          evalution of code is very useful.</p>
+
+          <div class="org-src-container">
+            <pre class="src src-java">
+(<span style=
+"color: #da8548; font-weight: bold;">12</span> * <span style=
+"color: #da8548; font-weight: bold;">10</span>)   <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">an expression multiplying 2 and 10</span>
+(<span style=
+"color: #da8548; font-weight: bold;">2</span> + num)   <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">add num to 2</span>
+</pre>
+          </div>
+
+          <p>When evaluating an expression, you should keep track
+          of the type. For example:</p>
+
+          <div class="org-src-container">
+            <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">whole</span> = <span style=
+"color: #da8548; font-weight: bold;">2</span>;
+<span style="color: #ECBE7B;">double</span> <span style=
+"color: #dcaeea;">decimal</span> = whole*<span style=
+"color: #da8548; font-weight: bold;">2.0</span>; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">whole * 2.0 is an expression which evaluates to a double</span>
+</pre>
+          </div>
+
+          <p>In the code above, we multiply an <code>double</code>
+          by an <code>int</code>, which Java automatically
+          transforms into a <code>double</code> for us.</p>
+        </div>
+      </div>
+
+      <div id="outline-container-orgf6a6b77" class="outline-3">
+        <h3 id="orgf6a6b77"><span class="todo TODO">TODO</span>
+        Basic arithmetic</h3>
+
+        <div class="outline-text-3" id="text-orgf6a6b77">
+          <p>Our basic arithmetic operations work in Java:
+          <code>+-*/</code>. As expected, <code>a + b</code> adds
+          <code>a</code> and <code>b</code> together while <code>a
+          - b</code> subtracts <code>b</code> from <code>a</code>.
+          If we mix <code>int</code> and <code>double</code> types
+          when it comes to operations, we always get back a
+          <code>double</code> because Java doesn&rsquo;t want to
+          throw away precision without your permission.</p>
+        </div>
+
+        <div id="outline-container-orgda4e56b" class="outline-4">
+          <h4 id="orgda4e56b">Integer Division</h4>
+
+          <div class="outline-text-4" id="text-orgda4e56b">
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">factor</span> = multiple / divisor;
+</pre>
+            </div>
+
+            <p>In the above code, <code>factor</code> is the
+            integer resulting from dividing <code>multiple</code>
+            by <code>divisor</code>. This is all well and good when
+            <code>factor * divisor</code> is equal to
+            <code>multiple</code>.</p>
+
+            <p>But what happens when it isn&rsquo;t?</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">multiple</span> = <span style=
+"color: #da8548; font-weight: bold;">13</span>;
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">divisor</span> = <span style=
+"color: #da8548; font-weight: bold;">3</span>;
+
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">factor</span> = multiple / divisor; <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">3 leaves a remainder of 1 when dividing 13.</span>
+</pre>
+            </div>
+
+            <p>Remember how when we cast a <code>double</code> to
+            an <code>int</code>, we discard the decimal portion? We
+            are doing a similar thing here. We can&rsquo;t express
+            <code>13/3</code> exactly in integers, so we will
+            discard the remainder. Our result, stored in
+            <code>factor</code> will be <code>4</code>, because
+            <code>4*3</code> is <code>12</code>, which is as close
+            as we can get to <code>13</code> without going
+            over.</p>
+
+            <p>If we want to find the remainder, we can use the
+            <code>modulo</code> operator, <code>%</code>.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">result</span> = (multiple / divisor) + (multiple % divisor)
+</pre>
+            </div>
+
+            <p>In this case, <code>result</code> is equal to
+            <code>13</code>, because <code>(multiple %
+            divisor)</code> is <code>1</code>, the remainder after
+            dividing <code>13</code> by <code>3</code><sup><a id=
+            "fnr.3" class="footref" href="#fn.3" name=
+            "fnr.3">3</a></sup>.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="outline-container-org227e4d0" class="outline-2">
       <h2 id="org227e4d0">Calling Functions</h2>
-
-      <div class="outline-text-2" id="text-org227e4d0"></div>
     </div>
 
     <div id="outline-container-org378142a" class="outline-2">
       <h2 id="org378142a">Running a Program</h2>
-
-      <div class="outline-text-2" id="text-org378142a"></div>
     </div>
 
     <div id="outline-container-org1246c24" class="outline-2">
       <h2 id="org1246c24">Scanners!</h2>
-
-      <div class="outline-text-2" id="text-org1246c24"></div>
     </div>
 
     <div id="outline-container-orga4b54de" class="outline-2">
@@ -708,8 +850,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
 
             <p>Of course, I don&rsquo;t want to do that. What if I
             wanted to do it 100 times instead? Or 1000?<sup><a id=
-            "fnr.3" class="footref" href="#fn.3" name=
-            "fnr.3">3</a></sup> Copy/pasting the line repeatedly
+            "fnr.4" class="footref" href="#fn.4" name=
+            "fnr.4">4</a></sup> Copy/pasting the line repeatedly
             would not be very fun at all. You might almost want
             to&hellip; <i>write a program to do it for you!</i></p>
           </div>
@@ -790,8 +932,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             </div>
 
             <p>What if you have <i>oudenophobia</i><sup><a id=
-            "fnr.4" class="footref" href="#fn.4" name=
-            "fnr.4">4</a></sup> and really want to avoid using the
+            "fnr.5" class="footref" href="#fn.5" name=
+            "fnr.5">5</a></sup> and really want to avoid using the
             number <code>0</code> in your code?</p>
 
             <div class="org-src-container">
@@ -810,8 +952,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             </div>
 
             <p>Wait&hellip; how does that work? 3219 has nothing to
-            do with 5. Or does it?<sup><a id="fnr.5" class=
-            "footref" href="#fn.5" name="fnr.5">5</a></sup> If you
+            do with 5. Or does it?<sup><a id="fnr.6" class=
+            "footref" href="#fn.6" name="fnr.6">6</a></sup> If you
             read the footnote at this point, you&rsquo;ll know that
             3219-3214=5, which is vital information for relating
             the above <code>for</code> loop to the number 5.</p>
@@ -826,13 +968,21 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             just repeat that for loop (<i>counts quietly for a
             second</i>) 20 times? No. Of course not. We just change
             the value that <code>i</code> is counting up to.</p>
+          </div>
+        </div>
 
+        <div id="outline-container-orgd6b333c" class="outline-4">
+          <h4 id="orgd6b333c">Deconstructing a for loop
+          (illustrated)</h4>
+
+          <div class="outline-text-4" id="text-orgd6b333c">
             <div id="org842ecbe" class="figure">
               <p><img src="static/img/forloop1.png" alt=
               "forloop1.png" /></p>
 
               <p><span class="figure-number">Figure 1:</span> A for
-              loop, broken down. Credits: Prof Kazakova.</p>
+              loop, broken down. All diagrams courtesy of Prof
+              Kazakova.</p>
             </div>
 
             <p class="verse">Steps:<br />
@@ -847,19 +997,53 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             1. check if <code>i &lt; limit</code>. If it is,
             continue to 2. If not, exit the loop.<br /></p>
 
-            <p>Between the <i>initializer</i> and the
-            <i>condition</i> we are defining a range of values for
-            <code>i</code> to fall into. The <i>update</i> tells us
-            how <code>i</code> will move through that range. One
-            way to think about for loops is to draw a number line
-            with the initial value of your loop variable, or the
-            <i>start</i>, and the value implied by your condition,
-            or the <i>finish</i>. You can then count how many times
-            you would have to use the update function to get from
-            the <i>start</i> to the <i>finish</i>. Relate that back
-            to the counting exercises we did when we started
-            clicker questions on for loops.</p>
+            <p>Remember, we can pull the initializer out of the
+            <code>for loop</code> declaration: <img src=
+            "static/img/forloop2.png" alt="forloop2.png" /></p>
+
+            <p>And then the update can happen inside the loop body:
+            <img src="static/img/forloop3.png" alt=
+            "forloop3.png" /></p>
+
+            <p>We can even take the condition out of the for loop
+            by using a special <code>break</code> statement to exit
+            from the loop when we are done: <img src=
+            "static/img/forloop4.png" alt="forloop4.png" /></p>
+
+            <p>If we dont have a condition at all, then we go on
+            forever&hellip; <img src="static/img/forloop5.png" alt=
+            "forloop5.png" /></p>
+
+            <p>What if we just did NOTHING forever? <img src=
+            "static/img/forloop6.png" alt="forloop6.png" /></p>
+
+            <p>We could do nothing forever in even fewer
+            characters! Maximize laziness! <img src=
+            "static/img/forloop7.png" alt="forloop7.png" /></p>
           </div>
+
+          <ul class="org-ul">
+            <li>
+              <a id="org182de5a" name="org182de5a"></a>Thoughts on
+              visualizing and understanding for loops<br />
+
+              <div class="outline-text-5" id="text-org182de5a">
+                <p>Between the <i>initializer</i> and the
+                <i>condition</i> we are defining a range of values
+                for <code>i</code> to fall into. The <i>update</i>
+                tells us how <code>i</code> will move through that
+                range. One way to think about for loops is to draw
+                a number line with the initial value of your loop
+                variable, or the <i>start</i>, and the value
+                implied by your condition, or the <i>finish</i>.
+                You can then count how many times you would have to
+                use the update function to get from the
+                <i>start</i> to the <i>finish</i>. Relate that back
+                to the counting exercises we did when we started
+                clicker questions on for loops.</p>
+              </div>
+            </li>
+          </ul>
         </div>
 
         <div id="outline-container-org61ba28d" class="outline-4">
@@ -923,9 +1107,14 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
           "fn.3">3</a></sup>
 
           <div class="footpara">
-            <p class="footpara">I am fully aware that a program
-            that just says &ldquo;tick&rdquo; 1000 times is neither
-            exciting to a user nor your goal as a programmer.</p>
+            <p class="footpara">This seems to contradict the
+            earlier assertion, that Java won&rsquo;t throw away
+            your precision without your permission. However,
+            there&rsquo;s more at work here. Computer science
+            extends from a branch of mathematics called Discrete
+            Math, where everything is an integer. Much of the math
+            that determines what can and cannot be computed relies
+            on integer-only math.</p>
           </div>
         </div>
 
@@ -934,14 +1123,25 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
           "fn.4">4</a></sup>
 
           <div class="footpara">
-            <p class="footpara"><i>ouden</i> is Greek for nothing,
-            or literally, <i>not one</i>.</p>
+            <p class="footpara">I am fully aware that a program
+            that just says &ldquo;tick&rdquo; 1000 times is neither
+            exciting to a user nor your goal as a programmer.</p>
           </div>
         </div>
 
         <div class="footdef">
           <sup><a id="fn.5" class="footnum" href="#fnr.5" name=
           "fn.5">5</a></sup>
+
+          <div class="footpara">
+            <p class="footpara"><i>ouden</i> is Greek for nothing,
+            or literally, <i>not one</i>.</p>
+          </div>
+        </div>
+
+        <div class="footdef">
+          <sup><a id="fn.6" class="footnum" href="#fnr.6" name=
+          "fn.6">6</a></sup>
 
           <div class="footpara">
             <p class="footpara">Very related to 5 in this context.
@@ -955,7 +1155,7 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
   <div id="postamble" class="status">
     <p class="author">Author: Rik Bose</p>
 
-    <p class="date">Created: 2021-01-31 Sun 22:52</p>
+    <p class="date">Created: 2021-02-01 Mon 01:46</p>
   </div>
 </body>
 </html>

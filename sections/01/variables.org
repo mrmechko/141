@@ -94,6 +94,8 @@ int myDownCastInt = (int)19.3; // Casts 19.3 to an integer by dropping the .3
                                // portion and assigns it to myDownCastInt
 #+end_src
 
+Note that when we cast a =double= to an =int=, we discard the decimal portion.
+
 ** TODO Primitive Types vs Reference Types
 
 [fn:conventions] We will learn more about classes and interfaces later. An outline of basic conventions can be found [[https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html][here]].

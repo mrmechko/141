@@ -64,7 +64,8 @@ Ok. So we are starting with some value for =i= and we are stopping when the /con
 
 So what if I wanted to do that 100 times now? Do I just repeat that for loop (/counts quietly for a second/) 20 times? No. Of course not. We just change the value that =i= is counting up to.
 
-#+CAPTION: A for loop, broken down. Credits: Prof Kazakova.
+* Deconstructing a for loop (illustrated)
+#+CAPTION: A for loop, broken down. All diagrams courtesy of Prof Kazakova.
 #+NAME: fig:forloop1
 [[file:../../static/img/forloop1.png]]
 
@@ -77,6 +78,25 @@ Steps:
 1. check if =i < limit=. If it is, continue to 2. If not, exit the loop.
 #+end_verse
 
+Remember, we can pull the initializer out of the =for loop= declaration:
+[[file:../../static/img/forloop2.png]]
+
+And then the update can happen inside the loop body:
+[[file:../../static/img/forloop3.png]]
+
+We can even take the condition out of the for loop by using a special =break= statement to exit from the loop when we are done:
+[[file:../../static/img/forloop4.png]]
+
+If we dont have a condition at all, then we go on forever...
+[[file:../../static/img/forloop5.png]]
+
+What if we just did NOTHING forever?
+[[file:../../static/img/forloop6.png]]
+
+We could do nothing forever in even fewer characters! Maximize laziness!
+[[file:../../static/img/forloop7.png]]
+
+** Thoughts on visualizing and understanding for loops
 Between the /initializer/ and the /condition/ we are defining a range of values for =i= to fall into. The /update/ tells us how =i= will move through that range. One way to think about for loops is to draw a number line with the initial value of your loop variable, or the /start/, and the value implied by your condition, or the /finish/. You can then count how many times you would have to use the update function to get from the /start/ to the /finish/. Relate that back to the counting exercises we did when we started clicker questions on for loops.
 
 * Techniques
