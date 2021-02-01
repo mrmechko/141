@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2021-01-31 Sun 21:02 -->
+  <!-- 2021-01-31 Sun 22:14 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=us-ascii" />
   <meta name="viewport" content=
@@ -271,6 +271,8 @@
                 <a href="#org5cfe2d4">What is a type?</a>
 
                 <ul>
+                  <li><a href="#org1f11bff">Basic Types</a></li>
+
                   <li><a href="#orgca0c022">Casting</a></li>
 
                   <li><a href="#org46cc86f">Primitive Types vs
@@ -403,12 +405,97 @@
         <div class="outline-text-3" id="text-org5cfe2d4">
           <p>Java is a <b>strongly typed language</b>. This means
           you need to explicitly tell the Java compiler what kind
-          of data will be stored in a variable.</p>
+          of data will be stored in a variable. In much the same
+          way as the letter <code>O</code> and the digit
+          <code>0</code> can be indistinguishable in written text
+          unless you know specifically that you are dealing with
+          words or numbers, Java can&rsquo;t make sense of a
+          variable unless it knows how to interpret it.</p>
 
           <p class="verse">At the lowest level, all information in
-          a program is stored as a sequence of <i>bits</i>, which
-          are either <i>0</i> or <i>1</i>. <i>Bits</i> are stored
-          in collections of 8 to make up <i>bytes</i>.<br /></p>
+          a program is stored as a binary sequence of <i>bits</i>,
+          which are either <i>0</i> or <i>1</i>. <i>Bits</i> are
+          stored in collections of 8 to make up <i>bytes</i>. The
+          letter ``A&ldquo; is represented as
+          <code>01000001</code>, but so is the number
+          <code>65</code>! In order to avoid confusion, Java
+          requires a specific type to be associated with each
+          variable. You can think of the <span class=
+          "underline">type</span> as a `decoder-ring&rsquo; to
+          match the `binary encoding<sup><a id="fnr.2" class=
+          "footref" href="#fn.2" name=
+          "fnr.2">2</a></sup>&rsquo;<br /></p>
+        </div>
+
+        <div id="outline-container-org1f11bff" class="outline-4">
+          <h4 id="org1f11bff">Basic Types</h4>
+
+          <div class="outline-text-4" id="text-org1f11bff">
+            <p>We will start with three basic types.</p>
+
+            <ul class="org-ul">
+              <li>
+                <code>int</code>: An integer is a whole number
+                (e.g. 1, 2, 42&hellip;)
+
+                <ul class="org-ul">
+                  <li>Can store values from approximately
+                  -2,000,000,000 to 2,000,000,000</li>
+
+                  <li>Larger <i>magnitudes</i> can be stored in a
+                  type called <code>long</code>.</li>
+                </ul>
+              </li>
+
+              <li>
+                <code>double</code>: A double is a decimal number.
+
+                <ul class="org-ul">
+                  <li>Stands for ``double-precision floating
+                  point&ldquo;</li>
+
+                  <li>Represents scientific notation and can store
+                  up to 15 significant digits</li>
+
+                  <li>Is approximately double the precision of a
+                  <code>float</code> type.</li>
+                </ul>
+              </li>
+
+              <li>
+                <code>char</code>: A character, such as a letter,
+                number, or symbol.
+
+                <ul class="org-ul">
+                  <li>Certain characters, such as a
+                  <code>newline</code> or a <code>tab</code> have
+                  special `escaped&rsquo; representations</li>
+
+                  <li>The binary encoding of the letter `a&rsquo;
+                  is the same as the encoding of 65, `b&rsquo; is
+                  the same as 66, and `A&rsquo; is 92.</li>
+
+                  <li>A <code>char</code> type is denoted by single
+                  quotes <code>'</code> in Java.</li>
+                </ul>
+              </li>
+
+              <li>
+                <code>String</code>: A string of characters.
+
+                <ul class="org-ul">
+                  <li>Note the capital <code>S</code> in
+                  <code>String</code></li>
+
+                  <li>Can be as long as your computer has space
+                  for</li>
+
+                  <li>A <code>String</code> type is denoted by
+                  double quotes <code>"</code> in Java.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
         </div>
 
         <div id="outline-container-orgca0c022" class="outline-4">
@@ -479,8 +566,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
 
             <p>Of course, I don&rsquo;t want to do that. What if I
             wanted to do it 100 times instead? Or 1000?<sup><a id=
-            "fnr.2" class="footref" href="#fn.2" name=
-            "fnr.2">2</a></sup> Copy/pasting the line repeatedly
+            "fnr.3" class="footref" href="#fn.3" name=
+            "fnr.3">3</a></sup> Copy/pasting the line repeatedly
             would not be very fun at all. You might almost want
             to&hellip; <i>write a program to do it for you!</i></p>
           </div>
@@ -561,8 +648,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             </div>
 
             <p>What if you have <i>oudenophobia</i><sup><a id=
-            "fnr.3" class="footref" href="#fn.3" name=
-            "fnr.3">3</a></sup> and really want to avoid using the
+            "fnr.4" class="footref" href="#fn.4" name=
+            "fnr.4">4</a></sup> and really want to avoid using the
             number <code>0</code> in your code?</p>
 
             <div class="org-src-container">
@@ -581,8 +668,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             </div>
 
             <p>Wait&hellip; how does that work? 3219 has nothing to
-            do with 5. Or does it?<sup><a id="fnr.4" class=
-            "footref" href="#fn.4" name="fnr.4">4</a></sup> If you
+            do with 5. Or does it?<sup><a id="fnr.5" class=
+            "footref" href="#fn.5" name="fnr.5">5</a></sup> If you
             read the footnote at this point, you&rsquo;ll know that
             3219-3214=5, which is vital information for relating
             the above <code>for</code> loop to the number 5.</p>
@@ -680,9 +767,12 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
           "fn.2">2</a></sup>
 
           <div class="footpara">
-            <p class="footpara">I am fully aware that a program
-            that just says &ldquo;tick&rdquo; 1000 times is neither
-            exciting to a user nor your goal as a programmer.</p>
+            <p class="footpara">An encoding is a predefined
+            convention to represent something. For example, the
+            text you are reading on your screen right now are an
+            <i>encoding</i> of the words they represent. In
+            computer science, we <i>encode</i> everything in a
+            binary format of 1s and 0s.</p>
           </div>
         </div>
 
@@ -691,14 +781,25 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
           "fn.3">3</a></sup>
 
           <div class="footpara">
-            <p class="footpara"><i>ouden</i> is Greek for nothing,
-            or literally, <i>not one</i>.</p>
+            <p class="footpara">I am fully aware that a program
+            that just says &ldquo;tick&rdquo; 1000 times is neither
+            exciting to a user nor your goal as a programmer.</p>
           </div>
         </div>
 
         <div class="footdef">
           <sup><a id="fn.4" class="footnum" href="#fnr.4" name=
           "fn.4">4</a></sup>
+
+          <div class="footpara">
+            <p class="footpara"><i>ouden</i> is Greek for nothing,
+            or literally, <i>not one</i>.</p>
+          </div>
+        </div>
+
+        <div class="footdef">
+          <sup><a id="fn.5" class="footnum" href="#fnr.5" name=
+          "fn.5">5</a></sup>
 
           <div class="footpara">
             <p class="footpara">Very related to 5 in this context.
@@ -712,7 +813,7 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
   <div id="postamble" class="status">
     <p class="author">Author: Rik Bose</p>
 
-    <p class="date">Created: 2021-01-31 Sun 21:02</p>
+    <p class="date">Created: 2021-01-31 Sun 22:14</p>
   </div>
 </body>
 </html>

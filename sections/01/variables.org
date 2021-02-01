@@ -15,12 +15,31 @@ In Java, =identifiers= are legal names. Identifiers must start with a letter (up
 There are conventions surrounding names in Java. While your code will compile and run if you break these conventions, other coders might get confused trying to read your code if you do. Identifiers for classes and interfaces should start with a capital letter. Variables start with lowercase letters. All identifiers should be descriptive, if possible, and you should only use a single character identifier if the variable is 'temporary'. If a variable has multiple words in it (e.g. =myReallyFunVariableName=), then all words after the first should start with a capital letter[fn:conventions].
 
 * What is a type?
-Java is a *strongly typed language*. This means you need to explicitly tell the Java compiler what kind of data will be stored in a variable.
+Java is a *strongly typed language*. This means you need to explicitly tell the Java compiler what kind of data will be stored in a variable. In much the same way as the letter =O= and the digit =0= can be indistinguishable in written text unless you know specifically that you are dealing with words or numbers, Java can't make sense of a variable unless it knows how to interpret it.
 
 #+begin_verse
-At the lowest level, all information in a program is stored as a sequence of /bits/, which are either /0/ or /1/. /Bits/ are stored in collections of 8 to make up /bytes/.
+At the lowest level, all information in a program is stored as a binary sequence of /bits/, which are either /0/ or /1/. /Bits/ are stored in collections of 8 to make up /bytes/. The letter ``A" is represented as =01000001=, but so is the number =65=! In order to avoid confusion, Java requires a specific type to be associated with each variable. You can think of the _type_ as a `decoder-ring' to match the `binary encoding[fn:encoding]'
 #+end_verse
+** Basic Types
+We will start with three basic types.
+- =int=: An integer is a whole number (e.g. 1, 2, 42...)
+  + Can store values from approximately -2,000,000,000 to 2,000,000,000
+  + Larger /magnitudes/ can be stored in a type called =long=.
+- =double=: A double is a decimal number.
+  + Stands for ``double-precision floating point"
+  + Represents scientific notation and can store up to 15 significant digits
+  + Is approximately double the precision of a =float= type.
+- =char=: A character, such as a letter, number, or symbol.
+  + Certain characters, such as a =newline= or a =tab= have special `escaped' representations
+  + The binary encoding of the letter `a' is the same as the encoding of 65, `b' is the same as 66, and `A' is 92.
+  + A =char= type is denoted by single quotes ='= in Java.
+- =String=: A string of characters.
+  + Note the capital =S= in =String=
+  + Can be as long as your computer has space for
+  + A =String= type is denoted by double quotes ="= in Java.
+
 ** Casting
 ** Primitive Types vs Reference Types
 
 [fn:conventions] We will learn more about classes and interfaces later. An outline of basic conventions can be found [[https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html][here]].
+[fn:encoding] An encoding is a predefined convention to represent something. For example, the text you are reading on your screen right now are an /encoding/ of the words they represent. In computer science, we /encode/ everything in a binary format of 1s and 0s.
