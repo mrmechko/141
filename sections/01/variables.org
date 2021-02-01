@@ -1,0 +1,26 @@
+* What is a variable?
+
+A /variable/ is a container for data. In the process of writing and running our programs, we will need to store and access values in order to perform computations on them. Just like in algebra, we can give a certain piece of data (e.g. a number, or a word, or even the steps to a recipe for flan) a name. Once we've defined a variable, we can access the value stored in that variable and modify it without having to remember what the value was.
+
+If we didn't have variables, we would have to keep track of the values ourself - this would mean that we would have to figure out how the value changes throughout our program in order to be able to use it. In that case, we wouldn't need a computer at all because we would already know what the results are!
+
+#+begin_verse
+As the name implies, a /variable/ is something that can /vary/. Our code is a process that takes some information as input and returns a result. In this case, /variables/ are the part of our code that we might want to change each time we run our code.
+#+end_verse
+
+** Identifiers
+In Java, =identifiers= are legal names. Identifiers must start with a letter (upper or lower case) or an =_= so that the Java compiler doesn't get confused. They also cannot have a space in them, or the Java compiler will try to read them as two different things! Identifiers may contain any number of letters, digits, or =_= after the initial character.
+
+** Naming Conventions
+There are conventions surrounding names in Java. While your code will compile and run if you break these conventions, other coders might get confused trying to read your code if you do. Identifiers for classes and interfaces should start with a capital letter. Variables start with lowercase letters. All identifiers should be descriptive, if possible, and you should only use a single character identifier if the variable is 'temporary'. If a variable has multiple words in it (e.g. =myReallyFunVariableName=), then all words after the first should start with a capital letter[fn:conventions].
+
+* What is a type?
+Java is a *strongly typed language*. This means you need to explicitly tell the Java compiler what kind of data will be stored in a variable.
+
+#+begin_verse
+At the lowest level, all information in a program is stored as a sequence of /bits/, which are either /0/ or /1/. /Bits/ are stored in collections of 8 to make up /bytes/.
+#+end_verse
+** Casting
+** Primitive Types vs Reference Types
+
+[fn:conventions] We will learn more about classes and interfaces later. An outline of basic conventions can be found [[https://www.oracle.com/java/technologies/javase/codeconventions-namingconventions.html][here]].

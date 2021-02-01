@@ -1,12 +1,6 @@
 #+seq_todo: TODO DRAFT DONE
-#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
 
-* Posts :@java:
-** DONE For Loops
-CLOSED: [2021-01-31 Sun 15:22]
-#+begin_verse
-The purpose of this document is not to teach you =for= loops from scratch. It is intended as notes to help solidify your understanding from doing the Review Questions, attending lectures, and completing labs.
-#+end_verse
+* Repeating Commands
 
 A loop in Java is a way of repeating a sequence of commands without having to type it out multiple times. For example, if I wanted to print "tick" 5 times, I could do the following:
 
@@ -20,7 +14,7 @@ System.out.println("tick");
 
 Of course, I don't want to do that. What if I wanted to do it 100 times instead? Or 1000?[fn:times] Copy/pasting the line repeatedly would not be very fun at all. You might almost want to... /write a program to do it for you!/
 
-*** Enter the =for= loop.
+* Enter the =for= loop.
 
 #+begin_src java
 // Lets print "tick" 5 times!
@@ -72,7 +66,7 @@ So what if I wanted to do that 100 times now? Do I just repeat that for loop (/c
 
 #+CAPTION: A for loop, broken down. Credits: Prof Kazakova.
 #+NAME: fig:forloop1
-[[file:./static/img/forloop1.png]]
+[[file:../../static/img/forloop1.png]]
 
 #+begin_verse
 Steps:
@@ -84,6 +78,10 @@ Steps:
 #+end_verse
 
 Between the /initializer/ and the /condition/ we are defining a range of values for =i= to fall into. The /update/ tells us how =i= will move through that range. One way to think about for loops is to draw a number line with the initial value of your loop variable, or the /start/, and the value implied by your condition, or the /finish/. You can then count how many times you would have to use the update function to get from the /start/ to the /finish/. Relate that back to the counting exercises we did when we started clicker questions on for loops.
+
+* Techniques
+** Triangle
+** Mirroring
 
 [fn:times] I am fully aware that a program that just says "tick" 1000 times is neither exciting to a user nor your goal as a programmer.
 [fn:ouden] /ouden/ is Greek for nothing, or literally, /not one/.

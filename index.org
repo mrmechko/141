@@ -1,0 +1,27 @@
+#+seq_todo: TODO DRAFT DONE
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+TITLE: Chapter 1
+#+OPTIONS: num:nil
+
+#+begin_verse
+This is a work-in-progress. The order of material is not the same as the order of material in lectures. This is not an exhaustive resource.
+
+The purpose of this document is not to teach you all the material from scratch. It is intended as notes to help solidify your understanding from doing the Review Questions, attending lectures, and completing labs.
+#+end_verse
+
+* Introduction
+* Variables and Types
+#+INCLUDE: "sections/01/variables.org"
+* Expressions
+#+INCLUDE: "sections/01/expressions.org"
+* Calling Functions
+#+INCLUDE: "sections/01/calling.org"
+* Running a Program
+#+INCLUDE: "sections/01/running.org"
+* Scanners!
+#+INCLUDE: "sections/01/scanners.org"
+* Control Flow
+** For Loops
+#+INCLUDE: "sections/01/forloops.org"
+** If Statements
+#+INCLUDE: "sections/01/ifstatements.org"
