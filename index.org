@@ -11,6 +11,8 @@ The purpose of this document is not to teach you all the material from scratch. 
 #+end_verse
 
 * Introduction
+Below are a draft of notes for what we've covered in class. I've focused on the general aspects of Java and prioritized based on what students have indicated that they are concerned about. I encourage you to seek out other resources to help fill in the gaps of your understanding!
+
 * Variables and Types
 #+INCLUDE: "sections/01/variables.org"
 * Expressions (and Types)

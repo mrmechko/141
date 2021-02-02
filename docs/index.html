@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2021-02-01 Mon 01:46 -->
+  <!-- 2021-02-01 Mon 23:12 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=us-ascii" />
   <meta name="viewport" content=
@@ -309,7 +309,23 @@
 
           <li><a href="#org378142a">Running a Program</a></li>
 
-          <li><a href="#org1246c24">Scanners!</a></li>
+          <li>
+            <a href="#org1246c24">Scanners!</a>
+
+            <ul>
+              <li>
+                <a href="#org6cb9561">Reading input</a>
+
+                <ul>
+                  <li><a href="#org355529b">Creating a
+                  <code>Scanner</code></a></li>
+
+                  <li><a href="#org954ed5a">Using the
+                  Scanner</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
 
           <li>
             <a href="#orga4b54de">Control Flow</a>
@@ -350,6 +366,15 @@
 
     <div id="outline-container-org21763c5" class="outline-2">
       <h2 id="org21763c5">Introduction</h2>
+
+      <div class="outline-text-2" id="text-org21763c5">
+        <p>Below are a draft of notes for what we&rsquo;ve covered
+        in class. I&rsquo;ve focused on the general aspects of Java
+        and prioritized based on what students have indicated that
+        they are concerned about. I encourage you to seek out other
+        resources to help fill in the gaps of your
+        understanding!</p>
+      </div>
     </div>
 
     <div id="outline-container-org9d3aad6" class="outline-2">
@@ -817,6 +842,156 @@ alice = bob; <span style="color: #5B6268;">// </span><span style=
 
     <div id="outline-container-org1246c24" class="outline-2">
       <h2 id="org1246c24">Scanners!</h2>
+
+      <div class="outline-text-2" id="text-org1246c24"></div>
+
+      <div id="outline-container-org6cb9561" class="outline-3">
+        <h3 id="org6cb9561">Reading input</h3>
+
+        <div class="outline-text-3" id="text-org6cb9561">
+          <p>Sometimes programs are more interesting when you can
+          interact with them. Reading input from a user requires us
+          to pause the program until the user types something in.
+          Once they&rsquo;ve given us their input, we need to make
+          sense of it and store it into a variable. Enter the
+          <code>Scanner</code>. A <code>Scanner</code> is a type of
+          object in Java that can read input from the user and
+          transform it into an appropriate type for us to use in
+          our program.</p>
+
+          <p>The <code>Scanner</code> will handle pausing the
+          program until it has received the expected inputs and
+          then interpretting the keyboard input to an appropriate
+          Java type for use in your program. All you have to do is
+          tell it what to expect from the user!</p>
+        </div>
+
+        <div id="outline-container-org355529b" class="outline-4">
+          <h4 id="org355529b">Creating a <code>Scanner</code></h4>
+
+          <div class="outline-text-4" id="text-org355529b">
+            <p>In order to create a <code>Scanner</code>, we need
+            to make sure that Java knows exactly what it is. Some
+            things, like <code>int</code>, <code>double</code>, or
+            <code>String</code> are included by default. Other
+            things need to be included into your code explicitly.
+            Fortunately, we dont have to copy the code for
+            <code>Scanner</code> into our Java file every time we
+            want to use it. We will use an <code>import</code>
+            statement instead.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #5B6268;">// </span><span style=
+"color: #5B6268;">top of file</span>
+<span style="color: #51afef;">import</span> <span style=
+"color: #a9a1e1;">java</span>.<span style=
+"color: #a9a1e1;">util</span>.<span style=
+"color: #ECBE7B;">Scanner</span>;
+<span style="color: #5B6268;">// </span><span style=
+"color: #5B6268;">This includes all the code necessary to tell Java what a Scanner is</span>
+</pre>
+            </div>
+
+            <p class="verse">You will often see <code>import</code>
+            statements at the top of your code. The purpose of this
+            statement is to tell Java what code you want to have
+            access to. <code>import</code> statements will help you
+            link together your own code that you have written
+            across multiple files or access <i>libraries</i> of
+            code written by other people. We will learn more about
+            <code>imports</code> later.<br /></p>
+
+            <p>Once we have imported our scanner we need to create
+            a variable to hold an <i>instance</i> of a
+            <code>Scanner</code> and link it to keyboard input.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #5B6268;">// </span><span style=
+"color: #5B6268;">define a new Scanner called scan and tell it to read from the keyboard</span>
+<span style="color: #ECBE7B;">Scanner</span> <span style=
+"color: #dcaeea;">scan</span> = <span style=
+"color: #51afef;">new</span> <span style=
+"color: #ECBE7B;">Scanner</span>(System.in);
+</pre>
+            </div>
+
+            <p>Here we create a new variable called
+            <code>scan</code>. The variable is designated the type
+            <code>Scanner</code>. On the right side of the
+            assignment (equals sign) we create a new instance of a
+            <code>Scanner</code> that will watch and read from
+            <code>System.in</code>, which is Java&rsquo;s
+            predetermined name for the stream of data that comes
+            from the keyboard. We will attend to all of these
+            elements in more detail as we progress. For now, it is
+            sufficient to know that we have a <code>Scanner</code>
+            called <code>scan</code> that can be used to read from
+            the keyboard!</p>
+          </div>
+        </div>
+
+        <div id="outline-container-org954ed5a" class="outline-4">
+          <h4 id="org954ed5a">Using the Scanner</h4>
+
+          <div class="outline-text-4" id="text-org954ed5a">
+            <p>In order to use the input we read from
+            <code>System.in</code>, we need to assign it to a
+            variable. Our first attempt could be to read a line of
+            text from the user and assign it to a
+            <code>String</code> type.</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">String</span> <span style=
+"color: #dcaeea;">s</span> = scan.nextLine(); <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">reads a whole line of text and puts it into the String, s</span>
+</pre>
+            </div>
+
+            <p>This will read a single line of text from the
+            keyboard, waiting until the user hits
+            <code>enter</code>. If we want to read just a single
+            word, or <i>token</i>, we can use the following:</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">String</span> <span style=
+"color: #dcaeea;">s2</span> = scan.next(); <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">reads a token from the input stream</span>
+</pre>
+            </div>
+
+            <p>We can tell the <code>Scanner</code> what type we
+            expect the input to be, which makes our lives
+            easier:</p>
+
+            <div class="org-src-container">
+              <pre class="src src-java">
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">x</span> = scan.nextInt(); <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">read the next token as an integer.</span>
+<span style="color: #ECBE7B;">int</span> <span style=
+"color: #dcaeea;">y</span> = scan.nextDouble(); <span style=
+"color: #5B6268;">// </span><span style=
+"color: #5B6268;">reads the next token as a double</span>
+</pre>
+            </div>
+
+            <p>These functions can be extremely helpful, to quickly
+            grab numbers from the user, but keep in mind that if
+            the user doesn&rsquo;t follow your instructions, your
+            code could crash<sup><a id="fnr.4" class="footref"
+            href="#fn.4" name="fnr.4">4</a></sup>! There are ways
+            to catch the errors that arise in this situation which
+            we will get to later.</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div id="outline-container-orga4b54de" class="outline-2">
@@ -850,8 +1025,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
 
             <p>Of course, I don&rsquo;t want to do that. What if I
             wanted to do it 100 times instead? Or 1000?<sup><a id=
-            "fnr.4" class="footref" href="#fn.4" name=
-            "fnr.4">4</a></sup> Copy/pasting the line repeatedly
+            "fnr.5" class="footref" href="#fn.5" name=
+            "fnr.5">5</a></sup> Copy/pasting the line repeatedly
             would not be very fun at all. You might almost want
             to&hellip; <i>write a program to do it for you!</i></p>
           </div>
@@ -932,8 +1107,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             </div>
 
             <p>What if you have <i>oudenophobia</i><sup><a id=
-            "fnr.5" class="footref" href="#fn.5" name=
-            "fnr.5">5</a></sup> and really want to avoid using the
+            "fnr.6" class="footref" href="#fn.6" name=
+            "fnr.6">6</a></sup> and really want to avoid using the
             number <code>0</code> in your code?</p>
 
             <div class="org-src-container">
@@ -952,8 +1127,8 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
             </div>
 
             <p>Wait&hellip; how does that work? 3219 has nothing to
-            do with 5. Or does it?<sup><a id="fnr.6" class=
-            "footref" href="#fn.6" name="fnr.6">6</a></sup> If you
+            do with 5. Or does it?<sup><a id="fnr.7" class=
+            "footref" href="#fn.7" name="fnr.7">7</a></sup> If you
             read the footnote at this point, you&rsquo;ll know that
             3219-3214=5, which is vital information for relating
             the above <code>for</code> loop to the number 5.</p>
@@ -1123,9 +1298,11 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
           "fn.4">4</a></sup>
 
           <div class="footpara">
-            <p class="footpara">I am fully aware that a program
-            that just says &ldquo;tick&rdquo; 1000 times is neither
-            exciting to a user nor your goal as a programmer.</p>
+            <p class="footpara">It is standard to name the types of
+            errors you might run into in computer science. A common
+            shorthand for errors involving computers and software
+            is <code>PEBKAC</code>, which stands for <i>Problem
+            exists between keyboard and chair</i>!</p>
           </div>
         </div>
 
@@ -1134,14 +1311,25 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
           "fn.5">5</a></sup>
 
           <div class="footpara">
-            <p class="footpara"><i>ouden</i> is Greek for nothing,
-            or literally, <i>not one</i>.</p>
+            <p class="footpara">I am fully aware that a program
+            that just says &ldquo;tick&rdquo; 1000 times is neither
+            exciting to a user nor your goal as a programmer.</p>
           </div>
         </div>
 
         <div class="footdef">
           <sup><a id="fn.6" class="footnum" href="#fnr.6" name=
           "fn.6">6</a></sup>
+
+          <div class="footpara">
+            <p class="footpara"><i>ouden</i> is Greek for nothing,
+            or literally, <i>not one</i>.</p>
+          </div>
+        </div>
+
+        <div class="footdef">
+          <sup><a id="fn.7" class="footnum" href="#fnr.7" name=
+          "fn.7">7</a></sup>
 
           <div class="footpara">
             <p class="footpara">Very related to 5 in this context.
@@ -1155,7 +1343,7 @@ System.out.println(<span style="color: #98be65;">"tick"</span>);
   <div id="postamble" class="status">
     <p class="author">Author: Rik Bose</p>
 
-    <p class="date">Created: 2021-02-01 Mon 01:46</p>
+    <p class="date">Created: 2021-02-01 Mon 23:12</p>
   </div>
 </body>
 </html>

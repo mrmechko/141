@@ -1,0 +1,51 @@
+* Reading input
+Sometimes programs are more interesting when you can interact with them. Reading input from a user requires us to pause the program until the user types something in. Once they've given us their input, we need to make sense of it and store it into a variable. Enter the =Scanner=. A =Scanner= is a type of object in Java that can read input from the user and transform it into an appropriate type for us to use in our program.
+
+The =Scanner= will handle pausing the program until it has received the expected inputs and then interpretting the keyboard input to an appropriate Java type for use in your program. All you have to do is tell it what to expect from the user!
+
+** Creating a =Scanner=
+In order to create a =Scanner=, we need to make sure that Java knows exactly what it is. Some things, like =int=, =double=, or =String= are included by default. Other things need to be included into your code explicitly.  Fortunately, we dont have to copy the code for =Scanner= into our Java file every time we want to use it. We will use an =import= statement instead.
+
+#+begin_src java
+// top of file
+import java.util.Scanner;
+// This includes all the code necessary to tell Java what a Scanner is
+#+end_src
+
+#+begin_verse
+You will often see =import= statements at the top of your code. The purpose of this statement is to tell Java what code you want to have access to. =import= statements will help you link together your own code that you have written across multiple files or access /libraries/ of code written by other people. We will learn more about =imports= later.
+#+end_verse
+
+Once we have imported our scanner we need to create a variable to hold an /instance/ of a =Scanner= and link it to keyboard input.
+
+#+begin_src java
+// define a new Scanner called scan and tell it to read from the keyboard
+Scanner scan = new Scanner(System.in);
+#+end_src
+
+Here we create a new variable called =scan=. The variable is designated the type =Scanner=. On the right side of the assignment (equals sign) we create a new instance of a =Scanner= that will watch and read from =System.in=, which is Java's predetermined name for the stream of data that comes from the keyboard. We will attend to all of these elements in more detail as we progress. For now, it is sufficient to know that we have a =Scanner= called =scan= that can be used to read from the keyboard!
+
+** Using the Scanner
+In order to use the input we read from =System.in=, we need to assign it to a variable. Our first attempt could be to read a line of text from the user and assign it to a =String= type.
+
+#+begin_src java
+String s = scan.nextLine(); // reads a whole line of text and puts it into the String, s
+#+end_src
+
+This will read a single line of text from the keyboard, waiting until the user hits =enter=. If we want to read just a single word, or /token/, we can use the following:
+
+#+begin_src java
+String s2 = scan.next(); // reads a token from the input stream
+#+end_src
+
+We can tell the =Scanner= what type we expect the input to be, which makes our lives easier:
+
+#+begin_src java
+int x = scan.nextInt(); // read the next token as an integer.
+int y = scan.nextDouble(); // reads the next token as a double
+#+end_src
+
+These functions can be extremely helpful, to quickly grab numbers from the user, but keep in mind that if the user doesn't follow your instructions, your code could crash[fn:pebkac]! There are ways to catch the errors that arise in this situation which we will get to later.
+
+
+[fn:pebkac] It is standard to name the types of errors you might run into in computer science. A common shorthand for errors involving computers and software is =PEBKAC=, which stands for /Problem exists between keyboard and chair/!
