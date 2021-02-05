@@ -5,6 +5,8 @@
 * Instructions
 Each breakout room will take the problem that matches their room number. You will have 15 minutes to examine the given solution to the problem (java tutor link) and figure out how it works. Each group will have 5 minutes to explain how their problem solution works to the rest of the class.
 
+The first link is to the CodingBat problem, the second link is to the provided solution implemented in java tutor. When you present, we will walk through the code using java tutor and you can explain what each step is doing.
+
 You may use any resources you want. Don't stress, I will offer hints if necessary.
 * Problems
 ** Problem 1
