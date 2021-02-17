@@ -1,0 +1,261 @@
+#+TITLE: CS 141, Exam 1, Winter '21
+#+OPTIONS: num:nil
+#+SETUPFILE: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+
+* Note
+- The example for Question 4 was wrong. The second part should have read today = 4, daysUntilExam = 22 should print: "Saturday". This was posted in slack.
+* Solutions
+** Question 1
+| expression                                 | result | type    |
+|--------------------------------------------+--------+---------|
+| 7 * 3                                      |     21 | int     |
+|--------------------------------------------+--------+---------|
+| 14 % 3                                     |      2 | int     |
+|--------------------------------------------+--------+---------|
+| 15/3.0                                     |    5.0 | double  |
+|--------------------------------------------+--------+---------|
+| 3 + 1.9                                    |    4.9 | double  |
+|--------------------------------------------+--------+---------|
+| 7/3                                        |      2 | int     |
+|--------------------------------------------+--------+---------|
+| (2 + 5.0) - 2/5                            |    7.0 | double  |
+|--------------------------------------------+--------+---------|
+| "horse".charAt(3);                         |    's' | char    |
+|--------------------------------------------+--------+---------|
+| "teemo".equals("buteemosh".substring(2,5)) |  false | boolean |
+|--------------------------------------------+--------+---------|
+| "elephant"                                 |      8 | int     |
+|--------------------------------------------+--------+---------|
+** Question 2
+
+** Question 3
+This question is all about modifying a for loop to do what you want it to do. You will start off with a simple for loop that prints out every character in the string. Each part asks you to modify the loop slightly to change the behavior.
+
+For partial credit, you may indicate which part of the for loop needs to be changed and how in order to achieve the desired behavior. Remember the primary parts of the for loop are initializer, condition, update, and body.
+
+Use letters.charAt(index) to get each letter.
+Use System.out.println() to print things out one line at a time. Use the identifier index for your loop variable.
+a) Given a =String= named =letters=, write a for loop that will print out all the characters in =letters= in order, one on each line.
+
+#+begin_src java
+for(int i = 0; i < letters.length(); i++) {
+    System.out.println(letters.charAt(i));
+}
+#+end_src
+
+b) Modify your for loop to print the characters in reverse order.
+#+begin_src java
+for (int i = letters.length()-1; i > 0; i--) {
+  System.out.println(letters.charAt(i - 1));
+  // remember the boundaries. (did not penalize this)
+}
+// OR, using mirroring
+for (int i = 0; i < letters.length(); i++) {
+  System.out.println(letters.charAt(i) - 1 - i);
+}
+#+end_src
+
+c) Modify your loop to further print only **every other character, backwards**
+
+#+begin_src java
+for(int i = letters.length(); i > 0; i-=2) {
+    System.out.println(letters.charAt(i));
+}
+// OR, if you were using mirroring,
+for(int i = 0; i < letters.length(); i+=2) {
+    System.out.println(letters.length() - 1 - i);
+}
+#+end_src
+d) Modify your loop even further to print **Every Other character backwards, in the second half of the string**
+
+#+begin_src java
+for(int i = letters.length(); i > letters.length()/2; i-=2) {
+    System.out.println(letters.charAt(i));
+}
+// OR, if you were using mirroring,
+for(int i = 0; i < letters.length()/2; i+=2) {
+    System.out.println(letters.length() - 1 - i);
+#+end_src
+
+e) Modify your loop even further **every other character, backwards, in the first half of the string**
+#+begin_src java
+for(int i = letters.length()/2; i > letters.length(); i-=2) {
+    System.out.println(letters.charAt(i));
+}
+// OR, if you were using mirroring,
+for(int i = letters.length()/2; i < letters.length(); i+=2) {
+    System.out.println(letters.length() - 1 - i);
+#+end_src
+
+ f) Modify your loop to **print out only vowels in the whole string**
+#+begin_src java
+for(int i = 0; i < letters.length(); i++) {
+    char c = letters.charAt(i);
+    if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u') {
+        System.out.println(c);
+    }
+}
+#+end_src
+
+** Question 4
+Two puppies, a =beagle= and a =poodle=, are competing in the “Puppy Bowl”, a new event where puppies play football against each other. Write code to read in the score of the =beagle= (as an integer), then the score of the =poodle= (also an integer). If the =beagle= has more points, print “beagle wins!”, and if the =poodle= has more points, print “poodle wins!”. If the scores are the same, print “It’s a tie!”. If the =beagle=’s score is at least 20 more than the =poodle=’s score, print “beagle wins in a blowout”, and if the =poodle=’s score is at least 20 more than the =beagle=’s score, print “poodle wins in a blowout”. Note that your code should print exactly one message. You can assume you already have a Scanner named scan.
+
+- Breakdown:
+  1. Read =poodle= score and =beagle= score
+  2. Check who is the winner
+  3. Check whether it was a blowout
+  4. Print winner
+
+     #+begin_src java
+int poodle = scan.nextInt();
+int beagle = scan.nextInt();
+
+if (poodle > beagle) {
+  if (poodle > beagle + 20) {
+    System.out.println("poodle wins in a blowout");
+  } else {
+    System.out.println("poodle wins");
+  }
+  else if (poodle < beagle) {
+    // I just copy pasted the previous iff statement and changed as few
+    // characters as possible!
+    if (poodle < beagle - 20) {
+      System.out.println("beagle wins in a blowout");
+    } else {
+      System.out.println("beagle wins");
+    }
+  }
+  else {
+    System.out.println("It's a tie!");
+  }
+     #+end_src
+** Question 5
+You are planning out your Spring term and want to know what day of the week each of your exams will fall on. For some reason, your professors have only told you how many days until your exams, rather than what day they fall on. To make your life easier, you decided to apply what you learned in CS141 and write a program that will compute what days of the week your exams will be on.
+
+Write code that reads an int named today and an int named daysUntilExam and prints out what day of the week your exam will be on.
+
+Today will have a value from 0 (Monday) to 6 (Sunday)
+
+Examples:
+
+today = 3, daysUntilExam = 32
+should print: “Monday”
+
+today = 4, daysUntilExam = 22
+should print: “Saturday”
+
+#+begin_src java
+Scanner scan = new Scanner(System.in);
+int day; // put your answer in this int.
+
+// your code goes here:
+int today = scan.nextInt();
+int daysUntilExam = scan.nextInt();
+
+day = (today + daysUntilExam) % 7;
+
+// The code to print the day of the week is provided here:
+// There are better ways to do this which you will learn later
+if (day == 0) {
+  System.out.println(“Monday”);
+} else if (day == 1) {
+  System.out.println(“Tuesday”);
+} else if (day == 2) {
+  System.out.println(“Wednesday”);
+} else if (day == 3) {
+  System.out.println(“Thursday”);
+} else if (day == 4) {
+  System.out.println(“Friday”);
+} else if (day == 5) {
+  System.out.println(“Saturday”);
+} else if (day == 6) {
+  System.out.println(“Sunday”);
+} else {
+  System.out.println(“Not a day !”);
+}
+#+end_src
+** Question 6
+Consider the following code:
+
+#+begin_src java
+int outer1 = 0;
+int outer2 = 0;
+int inner1 = 0;
+int inner2 = 0;
+for (int i=0; i < X; i++) {
+  outer1++;
+  for (int j=0; j <= Y; j++) {
+    inner1++;
+    for (int k=0; k < Z; k += 3) {
+      inner2++;
+    }
+  }
+}
+for (int m=W; m >= 1; m--) {
+  outer2++;
+}
+#+end_src
+
+Assume that X, Y, Z and W are positive integers. What are the finals values of outer1, outer2, inner1, and inner2, as a function of X, Y, Z, and W?
+
+| outer1 | outer2 | inner1  | inner2        |
+| X      | W      | X*(Y+1) | X*(Y+1)*(Z/3) |
+** Question 7
+What does this function compute? Summarize in one or two sentences. We’ve also included a REPL so you can run the code yourself with different inputs.
+
+https://repl.it/@jspacco/DependableUnevenBooleanlogic#Main.java
+
+#+begin_src java
+public static boolean mystery2(String s1, String s2) {
+ if (s1.length() != s2.length()){
+   return false;
+ }
+ for (int i=0; i < s1.length(); i++) {
+   int x = s2.length() - 1 - i;
+   if (s1.charAt(i) != s2.charAt(x)) {
+     return false;
+   }
+ }
+ return true;
+}
+#+end_src
+
+The first if statement returns fals if the two strings aren't equal. The for loop goes through character by character in =s1= and checks if the =i'th= character in =s1= is equal to the =i'th= from the last character in =s2=. If any of these checks fail, it returns =false=.
+
+The function =mystery2= is checking if =s1= is equal to the reverse of =s2=.
+
+** Question 8
+Write code that reads two int values: num_sides and length. Then draw a polygon with the given length for each side, and a total of num_sides sides. Assume that num_sides is at least 3 and length is at least 50.
+
+
+
+#+begin_src java
+Scanner scan = new Scanner(System.in);
+World world = new World();
+Turtle t = new Turtle(world);
+t.setColor(Color.BLUE);
+
+int num_sides = scan.nextInt();
+int length = scan.nextInt();
+
+for (int i = 0; i < num_sides; i++) {
+    t.forward(length);
+    t.turn(360/num_sides);
+}
+#+end_src
+
+** Question 9
+Write code with a SimpleGrid to draw a diagonal red stripe that is 3 squares wide (except in the first and last row, where it is 2 squares wide). Assume that the SimpleGrid is always square and is size at least 10x10. Below are some examples.
+
+#+begin_src java
+// grid is always square, number of rows is at least 10
+SimpleGrid g = new SimpleGrid(height);
+// write your code below
+for (int i = 0; i < g.numRows(); i++) {
+  g.setPixel(i, i, Color.RED);
+  if (i + 1 < g.numRows()) {
+    g.setPixel(i, i + 1, Color.RED);
+    g.setPixel(i + 1, i, Color.RED);
+  }
+}
+#+end_src
