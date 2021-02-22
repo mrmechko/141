@@ -45,7 +45,7 @@ for(int i = 0; i < letters.length(); i++) {
 
 b) Modify your for loop to print the characters in reverse order.
 #+begin_src java
-for (int i = letters.length()-1; i > 0; i--) {
+for (int i = letters.length(); i > 0; i--) {
   System.out.println(letters.charAt(i - 1));
   // remember the boundaries. (did not penalize this)
 }
@@ -69,8 +69,8 @@ for(int i = 0; i < letters.length(); i+=2) {
 d) Modify your loop even further to print **Every Other character backwards, in the second half of the string**
 
 #+begin_src java
-for(int i = letters.length(); i > letters.length()/2; i-=2) {
-    System.out.println(letters.charAt(i));
+for(int i = letters.length()/2; i > 0; i-=2) {
+    System.out.println(letters.charAt(i-1));
 }
 // OR, if you were using mirroring,
 for(int i = 0; i < letters.length()/2; i+=2) {

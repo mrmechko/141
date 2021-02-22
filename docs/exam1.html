@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-  <!-- 2021-02-16 Tue 22:28 -->
+  <!-- 2021-02-22 Mon 10:40 -->
   <meta http-equiv="Content-Type" content=
   "text/html; charset=us-ascii" />
   <meta name="viewport" content=
@@ -465,8 +465,7 @@
             <pre class="src src-java">
 <span style="color: #51afef;">for</span> (<span style=
 "color: #ECBE7B;">int</span> <span style=
-"color: #dcaeea;">i</span> = letters.length()-<span style=
-"color: #da8548; font-weight: bold;">1</span>; i &gt; <span style=
+"color: #dcaeea;">i</span> = letters.length(); i &gt; <span style=
 "color: #da8548; font-weight: bold;">0</span>; i--) {
   System.out.println(letters.charAt(i - <span style=
 "color: #da8548; font-weight: bold;">1</span>));
@@ -521,8 +520,12 @@
             <pre class="src src-java">
 <span style="color: #51afef;">for</span>(<span style=
 "color: #ECBE7B;">int</span> <span style=
-"color: #dcaeea;">i</span> = letters.length(); i &gt; letters.length()/<span style="color: #da8548; font-weight: bold;">2</span>; i-=<span style="color: #da8548; font-weight: bold;">2</span>) {
-    System.out.println(letters.charAt(i));
+"color: #dcaeea;">i</span> = letters.length()/<span style=
+"color: #da8548; font-weight: bold;">2</span>; i &gt; <span style=
+"color: #da8548; font-weight: bold;">0</span>; i-=<span style=
+"color: #da8548; font-weight: bold;">2</span>) {
+    System.out.println(letters.charAt(i-<span style=
+"color: #da8548; font-weight: bold;">1</span>));
 }
 <span style="color: #5B6268;">// </span><span style=
 "color: #5B6268;">OR, if you were using mirroring,</span>
@@ -1005,7 +1008,7 @@ t.setColor(<span style="color: #a9a1e1;">Color</span>.BLUE);
   <div id="postamble" class="status">
     <p class="author">Author: Rik Bose</p>
 
-    <p class="date">Created: 2021-02-16 Tue 22:28</p>
+    <p class="date">Created: 2021-02-22 Mon 10:40</p>
   </div>
 </body>
 </html>
